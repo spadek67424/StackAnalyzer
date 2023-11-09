@@ -46,11 +46,11 @@ class execute:
                 memindex = i.mem.index
                 flagmem = 1
         for r in regs_read:  ## catch the implicity read register of stack
-            readreg.append(inst.reg_name(r))
+            # readreg.append(inst.reg_name(r))
             if "rsp" in inst.reg_name(r):
                 flagrsp = 1
         for r in regs_write: ## catch the implicity write register of stack
-            writereg.append(inst.reg_name(r))
+            # writereg.append(inst.reg_name(r))
             if "rsp" in inst.reg_name(r):
                 flagrsp = 1
         

@@ -26,7 +26,6 @@ class disassembler:
                 #print(i)
                 self.inst[i.address] = (i)
                 #print(f'0x{i.address:x}:\t{i.mnemonic}\t{i.op_str}')
-            #f.close()
 
     def disasmsymbol(self):
         with open(self.path, 'rb') as f:
@@ -37,8 +36,6 @@ class disassembler:
                 for symbol in section.iter_symbols():
                     self.symbol[symbol['st_value']] = symbol.name
                     self.vertex[symbol['st_value']] = symbol.name                  
-                    #print(symbol.name)
-            #f.close()
 
 class parser:
     def __init__(self, symbol, inst, register, execute):
@@ -51,7 +48,7 @@ class parser:
         self.edge = set()
         self.vertex = set()
     def stack_analyzer(self):
-        nextinstkey = list(self.inst.keys())
+        nextinstkey = list(self.inst.keys()) ## this is for rip register.
         nextinstkey.append(-1) ## dummy value for last iteration.
         index = 0
         for key in self.inst.keys():
