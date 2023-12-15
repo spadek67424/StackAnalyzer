@@ -61,9 +61,6 @@ class parser:
             if key in self.symbol.keys():  ## check function block (as basic block but we use function as unit.)
                 self.stackfunction.append(self.symbol[key])
                 self.stacklist.append(self.register.reg["stack"])
-                #print(self.symbol[key])
-                #print(register.reg["stack"])
-                #print()
                 self.register.clean()
                 ###### Graph
                 vertexfrom = key
@@ -86,7 +83,7 @@ def driver(disassembler, register, execute, parser):
     
     parser.stack_analyzer()
     print(parser.edge)
-    return parser.stacklist;
+    return parser.stacklist
 
 
 if __name__ == '__main__':

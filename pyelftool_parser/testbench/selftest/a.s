@@ -52,7 +52,7 @@ Disassembly of section .text:
     1072:	54                   	push   %rsp
     1073:	45 31 c0             	xor    %r8d,%r8d
     1076:	31 c9                	xor    %ecx,%ecx
-    1078:	48 8d 3d e1 01 00 00 	lea    0x1e1(%rip),%rdi        # 1260 <main>
+    1078:	48 8d 3d 1f 02 00 00 	lea    0x21f(%rip),%rdi        # 129e <main>
     107f:	ff 15 5b 2f 00 00    	call   *0x2f5b(%rip)        # 3fe0 <__libc_start_main@GLIBC_2.34>
     1085:	f4                   	hlt    
     1086:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
@@ -112,135 +112,163 @@ Disassembly of section .text:
     1140:	f3 0f 1e fa          	endbr64 
     1144:	e9 77 ff ff ff       	jmp    10c0 <register_tm_clones>
 
-0000000000001149 <_Z9functcallii>:
+0000000000001149 <_Z11calledFirstv>:
     1149:	f3 0f 1e fa          	endbr64 
     114d:	55                   	push   %rbp
     114e:	48 89 e5             	mov    %rsp,%rbp
-    1151:	89 7d ec             	mov    %edi,-0x14(%rbp)
-    1154:	89 75 e8             	mov    %esi,-0x18(%rbp)
-    1157:	83 6d e8 37          	subl   $0x37,-0x18(%rbp)
-    115b:	83 45 e8 30          	addl   $0x30,-0x18(%rbp)
-    115f:	8b 45 e8             	mov    -0x18(%rbp),%eax
-    1162:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1165:	8b 45 fc             	mov    -0x4(%rbp),%eax
-    1168:	01 45 e8             	add    %eax,-0x18(%rbp)
-    116b:	8b 45 e8             	mov    -0x18(%rbp),%eax
-    116e:	5d                   	pop    %rbp
-    116f:	c3                   	ret    
+    1151:	83 6d f8 37          	subl   $0x37,-0x8(%rbp)
+    1155:	83 45 f8 30          	addl   $0x30,-0x8(%rbp)
+    1159:	8b 45 f8             	mov    -0x8(%rbp),%eax
+    115c:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    115f:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1162:	01 45 f8             	add    %eax,-0x8(%rbp)
+    1165:	90                   	nop
+    1166:	5d                   	pop    %rbp
+    1167:	c3                   	ret    
 
-0000000000001170 <_Z12functioncallii>:
-    1170:	f3 0f 1e fa          	endbr64 
-    1174:	55                   	push   %rbp
-    1175:	48 89 e5             	mov    %rsp,%rbp
-    1178:	89 7d fc             	mov    %edi,-0x4(%rbp)
-    117b:	89 75 f8             	mov    %esi,-0x8(%rbp)
-    117e:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
-    1185:	eb 0b                	jmp    1192 <_Z12functioncallii+0x22>
-    1187:	81 45 f8 c8 01 00 00 	addl   $0x1c8,-0x8(%rbp)
-    118e:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
-    1192:	83 7d fc 0a          	cmpl   $0xa,-0x4(%rbp)
-    1196:	7e ef                	jle    1187 <_Z12functioncallii+0x17>
-    1198:	83 6d f8 37          	subl   $0x37,-0x8(%rbp)
-    119c:	8b 45 f8             	mov    -0x8(%rbp),%eax
-    119f:	5d                   	pop    %rbp
-    11a0:	c3                   	ret    
+0000000000001168 <_Z10calledLastv>:
+    1168:	f3 0f 1e fa          	endbr64 
+    116c:	55                   	push   %rbp
+    116d:	48 89 e5             	mov    %rsp,%rbp
+    1170:	83 6d f8 37          	subl   $0x37,-0x8(%rbp)
+    1174:	83 45 f8 30          	addl   $0x30,-0x8(%rbp)
+    1178:	8b 45 f8             	mov    -0x8(%rbp),%eax
+    117b:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    117e:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    1181:	01 45 f8             	add    %eax,-0x8(%rbp)
+    1184:	90                   	nop
+    1185:	5d                   	pop    %rbp
+    1186:	c3                   	ret    
 
-00000000000011a1 <_Z7foocallii>:
-    11a1:	f3 0f 1e fa          	endbr64 
-    11a5:	55                   	push   %rbp
-    11a6:	48 89 e5             	mov    %rsp,%rbp
-    11a9:	48 83 ec 20          	sub    $0x20,%rsp
-    11ad:	89 7d ec             	mov    %edi,-0x14(%rbp)
-    11b0:	89 75 e8             	mov    %esi,-0x18(%rbp)
-    11b3:	bf 28 00 00 00       	mov    $0x28,%edi
-    11b8:	e8 93 fe ff ff       	call   1050 <_Znam@plt>
-    11bd:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
-    11c1:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
-    11c8:	eb 24                	jmp    11ee <_Z7foocallii+0x4d>
-    11ca:	81 45 e8 c8 01 00 00 	addl   $0x1c8,-0x18(%rbp)
-    11d1:	8b 45 f4             	mov    -0xc(%rbp),%eax
-    11d4:	48 98                	cltq   
-    11d6:	48 8d 14 85 00 00 00 	lea    0x0(,%rax,4),%rdx
-    11dd:	00 
-    11de:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
-    11e2:	48 01 c2             	add    %rax,%rdx
-    11e5:	8b 45 e8             	mov    -0x18(%rbp),%eax
-    11e8:	89 02                	mov    %eax,(%rdx)
-    11ea:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
-    11ee:	83 7d f4 0a          	cmpl   $0xa,-0xc(%rbp)
-    11f2:	7e d6                	jle    11ca <_Z7foocallii+0x29>
-    11f4:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
-    11f8:	48 83 c0 14          	add    $0x14,%rax
-    11fc:	8b 00                	mov    (%rax),%eax
-    11fe:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
-    1202:	48 83 c2 1c          	add    $0x1c,%rdx
-    1206:	8b 12                	mov    (%rdx),%edx
-    1208:	29 d0                	sub    %edx,%eax
-    120a:	89 45 e8             	mov    %eax,-0x18(%rbp)
-    120d:	8b 45 e8             	mov    -0x18(%rbp),%eax
-    1210:	c9                   	leave  
-    1211:	c3                   	ret    
+0000000000001187 <_Z9functcallii>:
+    1187:	f3 0f 1e fa          	endbr64 
+    118b:	55                   	push   %rbp
+    118c:	48 89 e5             	mov    %rsp,%rbp
+    118f:	89 7d ec             	mov    %edi,-0x14(%rbp)
+    1192:	89 75 e8             	mov    %esi,-0x18(%rbp)
+    1195:	83 6d e8 37          	subl   $0x37,-0x18(%rbp)
+    1199:	83 45 e8 30          	addl   $0x30,-0x18(%rbp)
+    119d:	8b 45 e8             	mov    -0x18(%rbp),%eax
+    11a0:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    11a3:	8b 45 fc             	mov    -0x4(%rbp),%eax
+    11a6:	01 45 e8             	add    %eax,-0x18(%rbp)
+    11a9:	8b 45 e8             	mov    -0x18(%rbp),%eax
+    11ac:	5d                   	pop    %rbp
+    11ad:	c3                   	ret    
 
-0000000000001212 <_Z3fibi>:
-    1212:	f3 0f 1e fa          	endbr64 
-    1216:	55                   	push   %rbp
-    1217:	48 89 e5             	mov    %rsp,%rbp
-    121a:	53                   	push   %rbx
-    121b:	48 83 ec 18          	sub    $0x18,%rsp
-    121f:	89 7d ec             	mov    %edi,-0x14(%rbp)
-    1222:	83 7d ec 01          	cmpl   $0x1,-0x14(%rbp)
-    1226:	75 07                	jne    122f <_Z3fibi+0x1d>
-    1228:	b8 01 00 00 00       	mov    $0x1,%eax
-    122d:	eb 2b                	jmp    125a <_Z3fibi+0x48>
-    122f:	83 7d ec 02          	cmpl   $0x2,-0x14(%rbp)
-    1233:	75 07                	jne    123c <_Z3fibi+0x2a>
-    1235:	b8 01 00 00 00       	mov    $0x1,%eax
-    123a:	eb 1e                	jmp    125a <_Z3fibi+0x48>
-    123c:	8b 45 ec             	mov    -0x14(%rbp),%eax
-    123f:	83 e8 01             	sub    $0x1,%eax
-    1242:	89 c7                	mov    %eax,%edi
-    1244:	e8 c9 ff ff ff       	call   1212 <_Z3fibi>
-    1249:	89 c3                	mov    %eax,%ebx
-    124b:	8b 45 ec             	mov    -0x14(%rbp),%eax
-    124e:	83 e8 02             	sub    $0x2,%eax
-    1251:	89 c7                	mov    %eax,%edi
-    1253:	e8 ba ff ff ff       	call   1212 <_Z3fibi>
-    1258:	01 d8                	add    %ebx,%eax
-    125a:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
-    125e:	c9                   	leave  
-    125f:	c3                   	ret    
+00000000000011ae <_Z12functioncallii>:
+    11ae:	f3 0f 1e fa          	endbr64 
+    11b2:	55                   	push   %rbp
+    11b3:	48 89 e5             	mov    %rsp,%rbp
+    11b6:	89 7d fc             	mov    %edi,-0x4(%rbp)
+    11b9:	89 75 f8             	mov    %esi,-0x8(%rbp)
+    11bc:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+    11c3:	eb 0b                	jmp    11d0 <_Z12functioncallii+0x22>
+    11c5:	81 45 f8 c8 01 00 00 	addl   $0x1c8,-0x8(%rbp)
+    11cc:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+    11d0:	83 7d fc 0a          	cmpl   $0xa,-0x4(%rbp)
+    11d4:	7e ef                	jle    11c5 <_Z12functioncallii+0x17>
+    11d6:	83 6d f8 37          	subl   $0x37,-0x8(%rbp)
+    11da:	8b 45 f8             	mov    -0x8(%rbp),%eax
+    11dd:	5d                   	pop    %rbp
+    11de:	c3                   	ret    
 
-0000000000001260 <main>:
-    1260:	f3 0f 1e fa          	endbr64 
-    1264:	55                   	push   %rbp
-    1265:	48 89 e5             	mov    %rsp,%rbp
-    1268:	48 83 ec 20          	sub    $0x20,%rsp
-    126c:	89 7d ec             	mov    %edi,-0x14(%rbp)
-    126f:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
-    1273:	c7 45 f8 01 00 00 00 	movl   $0x1,-0x8(%rbp)
-    127a:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
-    1281:	8b 55 fc             	mov    -0x4(%rbp),%edx
-    1284:	8b 45 f8             	mov    -0x8(%rbp),%eax
-    1287:	89 d6                	mov    %edx,%esi
-    1289:	89 c7                	mov    %eax,%edi
-    128b:	e8 e0 fe ff ff       	call   1170 <_Z12functioncallii>
-    1290:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    1293:	8b 55 fc             	mov    -0x4(%rbp),%edx
-    1296:	8b 45 f8             	mov    -0x8(%rbp),%eax
-    1299:	89 d6                	mov    %edx,%esi
-    129b:	89 c7                	mov    %eax,%edi
-    129d:	e8 ff fe ff ff       	call   11a1 <_Z7foocallii>
-    12a2:	89 45 fc             	mov    %eax,-0x4(%rbp)
-    12a5:	bf 14 00 00 00       	mov    $0x14,%edi
-    12aa:	e8 63 ff ff ff       	call   1212 <_Z3fibi>
-    12af:	90                   	nop
-    12b0:	c9                   	leave  
-    12b1:	c3                   	ret    
+00000000000011df <_Z7foocallii>:
+    11df:	f3 0f 1e fa          	endbr64 
+    11e3:	55                   	push   %rbp
+    11e4:	48 89 e5             	mov    %rsp,%rbp
+    11e7:	48 83 ec 20          	sub    $0x20,%rsp
+    11eb:	89 7d ec             	mov    %edi,-0x14(%rbp)
+    11ee:	89 75 e8             	mov    %esi,-0x18(%rbp)
+    11f1:	bf 28 00 00 00       	mov    $0x28,%edi
+    11f6:	e8 55 fe ff ff       	call   1050 <_Znam@plt>
+    11fb:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+    11ff:	c7 45 f4 00 00 00 00 	movl   $0x0,-0xc(%rbp)
+    1206:	eb 24                	jmp    122c <_Z7foocallii+0x4d>
+    1208:	81 45 e8 c8 01 00 00 	addl   $0x1c8,-0x18(%rbp)
+    120f:	8b 45 f4             	mov    -0xc(%rbp),%eax
+    1212:	48 98                	cltq   
+    1214:	48 8d 14 85 00 00 00 	lea    0x0(,%rax,4),%rdx
+    121b:	00 
+    121c:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1220:	48 01 c2             	add    %rax,%rdx
+    1223:	8b 45 e8             	mov    -0x18(%rbp),%eax
+    1226:	89 02                	mov    %eax,(%rdx)
+    1228:	83 45 f4 01          	addl   $0x1,-0xc(%rbp)
+    122c:	83 7d f4 0a          	cmpl   $0xa,-0xc(%rbp)
+    1230:	7e d6                	jle    1208 <_Z7foocallii+0x29>
+    1232:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+    1236:	48 83 c0 14          	add    $0x14,%rax
+    123a:	8b 00                	mov    (%rax),%eax
+    123c:	48 8b 55 f8          	mov    -0x8(%rbp),%rdx
+    1240:	48 83 c2 1c          	add    $0x1c,%rdx
+    1244:	8b 12                	mov    (%rdx),%edx
+    1246:	29 d0                	sub    %edx,%eax
+    1248:	89 45 e8             	mov    %eax,-0x18(%rbp)
+    124b:	8b 45 e8             	mov    -0x18(%rbp),%eax
+    124e:	c9                   	leave  
+    124f:	c3                   	ret    
+
+0000000000001250 <_Z3fibi>:
+    1250:	f3 0f 1e fa          	endbr64 
+    1254:	55                   	push   %rbp
+    1255:	48 89 e5             	mov    %rsp,%rbp
+    1258:	53                   	push   %rbx
+    1259:	48 83 ec 18          	sub    $0x18,%rsp
+    125d:	89 7d ec             	mov    %edi,-0x14(%rbp)
+    1260:	83 7d ec 01          	cmpl   $0x1,-0x14(%rbp)
+    1264:	75 07                	jne    126d <_Z3fibi+0x1d>
+    1266:	b8 01 00 00 00       	mov    $0x1,%eax
+    126b:	eb 2b                	jmp    1298 <_Z3fibi+0x48>
+    126d:	83 7d ec 02          	cmpl   $0x2,-0x14(%rbp)
+    1271:	75 07                	jne    127a <_Z3fibi+0x2a>
+    1273:	b8 01 00 00 00       	mov    $0x1,%eax
+    1278:	eb 1e                	jmp    1298 <_Z3fibi+0x48>
+    127a:	8b 45 ec             	mov    -0x14(%rbp),%eax
+    127d:	83 e8 01             	sub    $0x1,%eax
+    1280:	89 c7                	mov    %eax,%edi
+    1282:	e8 c9 ff ff ff       	call   1250 <_Z3fibi>
+    1287:	89 c3                	mov    %eax,%ebx
+    1289:	8b 45 ec             	mov    -0x14(%rbp),%eax
+    128c:	83 e8 02             	sub    $0x2,%eax
+    128f:	89 c7                	mov    %eax,%edi
+    1291:	e8 ba ff ff ff       	call   1250 <_Z3fibi>
+    1296:	01 d8                	add    %ebx,%eax
+    1298:	48 8b 5d f8          	mov    -0x8(%rbp),%rbx
+    129c:	c9                   	leave  
+    129d:	c3                   	ret    
+
+000000000000129e <main>:
+    129e:	f3 0f 1e fa          	endbr64 
+    12a2:	55                   	push   %rbp
+    12a3:	48 89 e5             	mov    %rsp,%rbp
+    12a6:	48 83 ec 20          	sub    $0x20,%rsp
+    12aa:	89 7d ec             	mov    %edi,-0x14(%rbp)
+    12ad:	48 89 75 e0          	mov    %rsi,-0x20(%rbp)
+    12b1:	c7 45 f8 01 00 00 00 	movl   $0x1,-0x8(%rbp)
+    12b8:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+    12bf:	8b 55 fc             	mov    -0x4(%rbp),%edx
+    12c2:	8b 45 f8             	mov    -0x8(%rbp),%eax
+    12c5:	89 d6                	mov    %edx,%esi
+    12c7:	89 c7                	mov    %eax,%edi
+    12c9:	e8 e0 fe ff ff       	call   11ae <_Z12functioncallii>
+    12ce:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    12d1:	8b 55 fc             	mov    -0x4(%rbp),%edx
+    12d4:	8b 45 f8             	mov    -0x8(%rbp),%eax
+    12d7:	89 d6                	mov    %edx,%esi
+    12d9:	89 c7                	mov    %eax,%edi
+    12db:	e8 ff fe ff ff       	call   11df <_Z7foocallii>
+    12e0:	89 45 fc             	mov    %eax,-0x4(%rbp)
+    12e3:	bf 14 00 00 00       	mov    $0x14,%edi
+    12e8:	e8 63 ff ff ff       	call   1250 <_Z3fibi>
+    12ed:	90                   	nop
+    12ee:	c9                   	leave  
+    12ef:	c3                   	ret    
 
 Disassembly of section .fini:
 
-00000000000012b4 <_fini>:
-    12b4:	f3 0f 1e fa          	endbr64 
-    12b8:	48 83 ec 08          	sub    $0x8,%rsp
-    12bc:	48 83 c4 08          	add    $0x8,%rsp
-    12c0:	c3                   	ret    
+00000000000012f0 <_fini>:
+    12f0:	f3 0f 1e fa          	endbr64 
+    12f4:	48 83 ec 08          	sub    $0x8,%rsp
+    12f8:	48 83 c4 08          	add    $0x8,%rsp
+    12fc:	c3                   	ret    
