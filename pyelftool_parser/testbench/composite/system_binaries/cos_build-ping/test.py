@@ -1,6 +1,6 @@
 import unittest   # The test framework
 import sys
-sys.path.insert(0, '/home/minghwu/work/StackAnalyzer/pyelftool_parser/src')
+sys.path.insert(0, '../../../../src')
 import analyzer
 
 class Test_TestFunctionSize(unittest.TestCase):
